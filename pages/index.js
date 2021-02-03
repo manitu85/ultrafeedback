@@ -14,7 +14,7 @@ const Home = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>ULTRA FEEDBACK</h1>
 
-        {auth?.user ? (
+        {auth.user ? (
           <div>
             <p>Email: {auth?.user?.email}</p>
             <button onClick={(e) => auth.signout()}>Sign Out</button>
