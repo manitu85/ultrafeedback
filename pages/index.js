@@ -4,6 +4,8 @@ import { useAuth } from '@/lib/auth';
 import { Button, Heading, Text, Code } from "@chakra-ui/react"
 import styles from '@/styles/Home.module.css';
 
+import { FastFeedbackIcon } from 'public/icons'
+
 const Home = () => {
   const auth = useAuth();
   return (
@@ -14,6 +16,7 @@ const Home = () => {
 
       <main>
         <Heading as="h1" size="2xl">ULTRA FEEDBACK</Heading>
+         <FastFeedbackIcon color="black.500" boxSize="32px" />
 
         {auth.user ? (
           <Text>
