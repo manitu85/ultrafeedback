@@ -9,7 +9,7 @@ import {
   Flex,
   Link,
   Avatar
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { useAuth } from '@/lib/auth';
 
 const DashboardShell = ({ children }) => {

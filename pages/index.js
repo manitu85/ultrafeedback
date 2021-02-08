@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useAuth } from '@/lib/auth';
 
-import { Button, Heading, Text, Code } from "@chakra-ui/react"
+import { Button, Heading, Text, Code, Flex } from "@chakra-ui/react"
 import styles from '@/styles/Home.module.css';
 
 import { FastFeedbackIcon } from 'public/icons'
@@ -9,14 +9,19 @@ import { FastFeedbackIcon } from 'public/icons'
 const Home = () => {
   const auth = useAuth();
   return (
-    <div className={styles.container}>
+    <Flex
+      as='main'
+      direction='column'
+      align='center'
+      justify='center'
+      h='100vh'
+    >
       <Head>
         <title>ULTRA FEEDBACK</title>
       </Head>
 
-      <main>
-        <Heading as="h1" size="2xl">ULTRA FEEDBACK</Heading>
-         <FastFeedbackIcon color="black.500" boxSize="32px" />
+        <FastFeedbackIcon color="black.500" boxSize="32px" />
+        <Heading as="h1" size="2xl" my='10' >ULTRA FEEDBACK</Heading>
 
         {auth.user ? (
           <Text>
@@ -41,8 +46,8 @@ const Home = () => {
             </Button>
           </>
         )}
-      </main>
-    </div>
+
+    </Flex>
   );
 };
 
