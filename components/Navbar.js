@@ -1,6 +1,7 @@
 import React from 'react';
 import NextLink from 'next/link';
 import { Box, Button, Flex, Link, Avatar, Icon } from '@chakra-ui/react';
+import { FastFeedbackIcon } from 'public/icons'
 
 import { useAuth } from '@/lib/auth';
 
@@ -23,7 +24,8 @@ const Navbar = ({ children }) => {
         <Flex align="center">
           <NextLink href="/" passHref>
             <Link>
-              <Icon name="logo" size="24px" mr={8} />
+              {/* <Icon name="logo" size="24px" mr={8} /> */}
+              <FastFeedbackIcon color="black.500" boxSize="32px" />
             </Link>
           </NextLink>
         </Flex>
