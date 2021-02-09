@@ -54,7 +54,7 @@ const AddSiteModal = ({ children }) => {
     //   }),
     //   false
     // );
-    // onClose();
+    onClose();
   };
 
   return (
