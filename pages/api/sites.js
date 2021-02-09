@@ -4,20 +4,24 @@
 
 import { db } from "@/lib/firebase-admin"
 
-export default (_, res) => {
-  const sitesRef = db.collection('sites');
-  const getDoc = sitesRef
-    .get()
-    .then((doc) =>{
-      if(!doc.exists) {
-        console.log("No such document!");
-      }
-      res.status(200).json(doc.data())
-      }).catch((err) =>{
-        console.log('Error getting document:', err);
-      })
-    res.status(200).json({ name: 'Next.js'})
+export default async (_, res) => {
+  const snapshot = await db.collection('sites').get();
+  let sites = [];
+
+  snapshot.forEach(doc => {
+    sites.push({ id: doc.id, ...doc.data()})
+  });
+    res.status(200).json(sites)
 }
+
+  // const getDoc = sitesRef.then((doc) =>{
+  //     if(!doc.exists) {
+  //       console.log("No such document!");
+  //     }
+  //     res.status(200).json(doc.data())
+  //     }).catch((err) =>{
+  //       console.log('Error getting document:', err);
+  //     })
 
 
 // export default async (req, res) => {
