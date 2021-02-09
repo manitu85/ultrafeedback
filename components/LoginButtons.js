@@ -1,5 +1,5 @@
 import { Button, Flex } from '@chakra-ui/react';
-
+import { DiGoogleDrive, DiGithubBadge } from 'react-icons/di'
 import { useAuth } from '@/lib/auth';
 
 const LoginButtons = () => {
@@ -12,9 +12,9 @@ const LoginButtons = () => {
         backgroundColor="gray.900"
         color="white"
         fontWeight="medium"
-        leftIcon="github"
+        leftIcon={<DiGithubBadge />}
         mt={4}
-        mr={2}
+         mr={2}
         _hover={{ bg: 'gray.700' }}
         _active={{
           bg: 'gray.800',
@@ -29,7 +29,7 @@ const LoginButtons = () => {
         color="gray.900"
         variant="outline"
         fontWeight="medium"
-        leftIcon="google"
+        leftIcon={<DiGoogleDrive />}
         mt={4}
         _hover={{ bg: 'gray.100' }}
         _active={{

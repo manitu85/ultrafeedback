@@ -1,6 +1,6 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Box, Button, Flex, Link, Avatar, Icon } from '@chakra-ui/react';
+import { Box, Button, Flex, Link, Avatar, Icon, Heading } from '@chakra-ui/react';
 import { FastFeedbackIcon } from 'public/icons'
 
 import { useAuth } from '@/lib/auth';
@@ -19,15 +19,22 @@ const Navbar = ({ children }) => {
         margin="0 auto"
         w="full"
         px={8}
-        h="60px"
+        h="80px"
       >
-        <Flex align="center">
+        <Flex align="center" justify="center">
           <NextLink href="/" passHref>
             <Link>
               {/* <Icon name="logo" size="24px" mr={8} /> */}
-              <FastFeedbackIcon color="black.500" boxSize="32px" />
+              <FastFeedbackIcon color="black.500" boxSize="32px" mr={2} />
             </Link>
           </NextLink>
+          <Heading
+          as="h1"
+          size="l"
+          my='10'
+          bgGradient="linear(to-l, #7928CA,#101010)"
+          bgClip="text" >ULTRA FEEDBACK
+          </Heading>
         </Flex>
         <Flex justifyContent="center" alignItems="center">
           <NextLink href="/pricing" passHref>

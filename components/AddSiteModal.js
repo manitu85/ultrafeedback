@@ -16,8 +16,8 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-// import { createSite } from '@/lib/db';
 import { useAuth } from '@/lib/auth';
+import { createSite } from '@/lib/firestore';
 
 const AddSiteModal = ({ children }) => {
   const toast = useToast();
@@ -38,14 +38,15 @@ const AddSiteModal = ({ children }) => {
       }
     };
 
-    // const { id } = createSite(newSite);
-    // toast({
-    //   title: 'Success!',
-    //   description: "We've added your site.",
-    //   status: 'success',
-    //   duration: 5000,
-    //   isClosable: true
-    // });
+    const { id } = createSite(newSite);
+    toast({
+      title: 'Success!',
+      description: "We've added your site.",
+      status: 'success',
+      duration: 5000,
+      isClosable: true
+    });
+
     // mutate(
     //   ['/api/sites', auth.user.token],
     //   async (data) => ({

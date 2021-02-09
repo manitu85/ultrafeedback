@@ -16,6 +16,8 @@ const theme = {
 
 export default theme
 
+// extend(theme)
+
 // const theme = {
 //   ...chakraTheme,
 //   fonts: {

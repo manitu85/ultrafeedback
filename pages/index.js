@@ -21,18 +21,18 @@ const Home = () => {
             direction='column'
             align='center'
             justify='center'
-            h='100vh'
+            h='90vh'
           >
             <FastFeedbackIcon color="black.500" boxSize="32px" />
             <Heading
               as="h1"
               size="2xl"
-              my='10'
-              bgGradient="linear(to-l, #7928CA,#FF0080)"
+              my={5}
+              bgGradient="linear(to-l, #7928CA,#101010)"
               bgClip="text" >ULTRA FEEDBACK</Heading>
             {auth.user ? (
               <Text>
-                <Code>Email: {auth?.user?.email}</Code>
+                <Code>Email: {auth.user.email}</Code>
                 <Button onClick={(e) => auth.signout()}>Sign Out</Button>
                 <EmptyState />
               </Text>
