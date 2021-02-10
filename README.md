@@ -7,8 +7,8 @@ React 2025 is a course showing the journey from zero lines of code to production
 ## Running Locally
 
 ```bash
-$ git clone https://github.com/leerob/fastfeedback.git
-$ cd fastfeedback
+$ git clone https://github.com/manitu85/ultrafeedback.git
+$ cd ultrafeedback
 $ yarn
 $ yarn dev
 ```
