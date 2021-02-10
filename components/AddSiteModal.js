@@ -48,8 +48,8 @@ const AddSiteModal = ({ children }) => {
       title: 'Success!',
       description: "We've added your site.",
       status: 'success',
-      duration: 6000,
       position: 'bottom-right',
+      duration: 6000,
       isClosable: true
     });
 
