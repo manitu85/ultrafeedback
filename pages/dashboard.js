@@ -12,7 +12,7 @@ const Dashboard = () => {
   const { data } = useSWR('api/sites', fetcher);
   const sites = data?.sites
 
-  console.log("SITES: >>", sites);
+  // console.log("SITES: >>", sites);
 
   if(!data) {
     return(
