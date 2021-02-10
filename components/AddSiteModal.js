@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-// import { mutate } from 'swr';
+import useSWR, { mutate } from 'swr';
 import {
   Modal,
   ModalOverlay,
@@ -18,27 +18,32 @@ import {
 
 import { useAuth } from '@/lib/auth';
 import { createSite } from '@/lib/firestore';
+import { fetcher } from '@/utils/fetcher';
 
 const AddSiteModal = ({ children }) => {
   const toast = useToast();
   const auth = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
+  const { data } = useSWR('/api/sites', fetcher);
 
   const onCreateSite = ({ name, url }) => {
+
     const newSite = {
       authorId: auth.user.uid,
       createdAt: new Date().toISOString(),
       name,
       url,
-      settings: {
-        icons: true,
-        timestamp: true,
-        ratings: false
-      }
+      // settings: {
+      //   icons: true,
+      //   timestamp: true,
+      //   ratings: false
+      // }
     };
 
-    const { id } = createSite(newSite);
+    createSite(newSite);
+    // const {id} = createSite(newSite);
+
     toast({
       title: 'Success!',
       description: "We've added your site.",
@@ -48,13 +53,14 @@ const AddSiteModal = ({ children }) => {
       isClosable: true
     });
 
-    // mutate(
-    //   ['/api/sites', auth.user.token],
-    //   async (data) => ({
-    //     sites: [{ id, ...newSite }, ...data.sites]
-    //   }),
-    //   false
-    // );
+    mutate(
+      '/api/sites', async (data) => {
+        console.log('DATA_SWR :>> ', data);
+        return { sites: [...data.sites, newSite] }
+      },
+      false
+    )
+
     onClose();
   };
 
