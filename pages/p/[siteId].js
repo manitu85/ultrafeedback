@@ -1,5 +1,14 @@
 import { getAllFeedback, getAllSites } from "@/lib/db-admin"
 
+
+const SiteFeedback = ({ initialFeedback }) => {
+  return initialFeedback.map(feedback => (
+    <Feedback key={feedback.id} {...feedback} />
+  ))
+}
+
+export default SiteFeedback;
+
 export async function getStaticProps(context) {
   const { siteId } = context.params
   const { feedback } = await getAllFeedback(siteId)
@@ -24,9 +33,3 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
-
-const SiteFeedback = ({ initialFeedback }) => {
-  return 'Hello World'
-}
-
-export default SiteFeedback;
