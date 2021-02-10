@@ -57,8 +57,7 @@ const AddSiteModal = ({ children }) => {
       '/api/sites', async (data) => {
         console.log('DATA_SWR :>> ', data);
         return { sites: [...data.sites, newSite] }
-      },
-      false
+      }, false
     )
 
     onClose();
