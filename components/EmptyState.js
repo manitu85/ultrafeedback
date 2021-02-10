@@ -1,8 +1,7 @@
 import React from 'react';
 import { Heading, Flex, Text } from '@chakra-ui/react';
-
 import AddSiteModal from './AddSiteModal';
-import DashboardShell from './DashboardShell';
+
 
 const EmptyState = () => (
   <Flex

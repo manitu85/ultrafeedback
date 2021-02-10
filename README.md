@@ -2,7 +2,7 @@
 
 > Easily add user reviews, feedback, and comments to your website in one line of code.
 
-This product is being built as part of [React 2025](https://react2025.com) tutorial by Lee Robinson.
+React 2025 is a course showing the journey from zero lines of code to production for a real SaaS app called Fast Feedback. This product is being built as part of [React 2025](https://react2025.com) tutorial by Lee Robinson.
 
 ## Running Locally
 
