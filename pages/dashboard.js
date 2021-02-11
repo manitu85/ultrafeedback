@@ -6,13 +6,15 @@ import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import SiteTable from '@/components/SiteTable';
 import EmptyState from '@/components/EmptyState';
 
+import { useAuth } from '@/lib/auth';
 import { fetcher } from '@/utils/fetcher';
 
-const Dashboard = () => {
-  const { data } = useSWR('api/sites', fetcher);
-  const sites = data?.sites
 
-  // console.log("SITES: >>", sites);
+const Dashboard = () => {
+  const { user } = useAuth()
+  // const { data } = useSWR('api/sites', fetcher);
+  const { data } = useSWR(user ? ['api/sites', user.token] : null, fetcher);
+  const sites = data?.sites
 
   if(!data) {
     return(
