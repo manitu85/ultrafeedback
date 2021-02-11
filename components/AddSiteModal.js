@@ -21,11 +21,13 @@ import { createSite } from '@/lib/firestore';
 import { fetcher } from '@/utils/fetcher';
 
 const AddSiteModal = ({ children }) => {
+
   const toast = useToast();
   const auth = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
   const { data } = useSWR('/api/sites', fetcher);
+  console.log('addSiteModal :>> ', data);
 
   const onCreateSite = ({ name, url }) => {
 
@@ -54,9 +56,10 @@ const AddSiteModal = ({ children }) => {
     });
 
     mutate(
-      '/api/sites', async (data) => {
+      ['/api/sites', auth.user.token],
+      async (data) => {
         console.log('DATA_SWR :>> ', data);
-        return { sites: [...data.sites, newSite] }
+        return { sites: [{...data.sites}, newSite] }
       }, false
     )
 
