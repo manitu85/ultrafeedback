@@ -55,11 +55,13 @@ const AddSiteModal = ({ children }) => {
       isClosable: true
     });
 
+    console.log('TOKEN :>> ', auth.user.token);
+
     mutate(
       ['/api/sites', auth.user.token],
       async (data) => {
         console.log('DATA_SWR :>> ', data);
-        return { sites: [{...data.sites}, newSite] }
+        return { sites: [...data.sites, newSite] }
       }, false
     )
 
