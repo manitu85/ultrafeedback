@@ -55,7 +55,7 @@ const SiteFeedback = ({ initialFeedback }) => {
         status: 'pending',
       }
 
-      // inputEl.current.value = ''
+      inputEl.current.value = ''
       // setAllFeedback((currentFeedback) => [newFeedback, ...currentFeedback])
       setAllFeedback([newFeedback, ...allFeedback])
       createFeedback(newFeedback)
