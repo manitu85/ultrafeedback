@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import useSWR, { mutate } from 'swr';
+import  { mutate } from 'swr';
 import {
   Modal,
   ModalOverlay,
@@ -18,14 +18,13 @@ import {
 
 import { useAuth } from '@/lib/auth';
 import { createSite } from '@/lib/firestore';
-import { fetcher } from '@/utils/fetcher';
 
 const AddSiteModal = ({ children }) => {
+
   const toast = useToast();
   const auth = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, register } = useForm();
-  const { data } = useSWR('/api/sites', fetcher);
 
   const onCreateSite = ({ name, url }) => {
 
@@ -53,12 +52,15 @@ const AddSiteModal = ({ children }) => {
       isClosable: true
     });
 
+    console.log('TOKEN :>> ', auth.user.token);
+
     mutate(
-      '/api/sites', async (data) => {
+      ['/api/sites', auth.user.token],
+      async (data) => {
         console.log('DATA_SWR :>> ', data);
         return { sites: [...data.sites, newSite] }
       }, false
-    )
+    );
 
     onClose();
   };
