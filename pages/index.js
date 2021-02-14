@@ -1,46 +1,20 @@
 import Head from 'next/head';
-import { Box, Button, Flex, Text, Icon, Link, Stack, Heading, Code } from '@chakra-ui/react';
 import { useAuth } from '@/lib/auth';
 
-import EmptyState from '@/components/EmptyState'
+import { Box, Heading, Button, Flex, Text, Link, Stack } from '@chakra-ui/react';
 import { FastFeedbackIcon } from 'public/icons'
+
 import Navbar from '@/components/Navbar';
 import LoginButtons from '@/components/LoginButtons';
+import Footer from '@/components/Footer';
 
 const Home = () => {
   const auth = useAuth();
   return (
         <>
-        <Head>
-            <title>ULTRA FEEDBACK</title>
-          </Head>
-          <Navbar />
-          <Flex
-            as='main'
-            direction='column'
-            align='center'
-            justify='center'
-            h='90vh'
-          >
-            <FastFeedbackIcon color="black.500" boxSize="32px" />
-            <Heading
-              as="h1"
-              size="2xl"
-              my={5}
-              bgGradient="linear(to-l, #7928CA,#101010)"
-              bgClip="text" >ULTRA FEEDBACK</Heading>
-            {auth.user ? (
-              <Text>
-                <Code>Email: {auth.user.email}</Code>
-                <Button onClick={(e) => auth.signout()}>Sign Out</Button>
-                <EmptyState />
-              </Text>
-            ) : (
-              <LoginButtons />
-            )}
-          </Flex>
-         {/* <Box bg="gray.100" py={16} px={4}>
-        <Flex as="main" direction="column" maxW="700px" margin="0 auto">
+        <Navbar />
+        <Box bg="gray.100" py={16} px={4}>
+        <Flex as="main" direction="column" justify="center" maxW="700px" h="80vh" margin="0 auto">
           <Head>
             <script
               dangerouslySetInnerHTML={{
@@ -53,9 +27,15 @@ const Home = () => {
             />
           </Head>
           <FastFeedbackIcon color="black" name="logo" boxSize="48px" mb={2} />
+            <Heading
+              as="h1"
+              size="2xl"
+              my={5}
+              bgGradient="linear(to-l, #7928CA,#101010)"
+              bgClip="text" >ULTRA FEEDBACK</Heading>
           <Text mb={4} fontSize="lg" py={4}>
             <Text as="span" fontWeight="bold" display="inline">
-              Fast Feedback
+              Ultra Feedback
             </Text>
             {' was built as part of '}
             <Link
@@ -88,7 +68,8 @@ const Home = () => {
             <LoginButtons />
           )}
         </Flex>
-      </Box> */}
+      </Box>
+      <Footer/>
       </>
   );
 };

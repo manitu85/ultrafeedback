@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import  { mutate } from 'swr';
+import { mutate } from 'swr';
 import {
   Modal,
   ModalOverlay,
@@ -16,8 +16,8 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-import { useAuth } from '@/lib/auth';
 import { createSite } from '@/lib/firestore';
+import { useAuth } from '@/lib/auth';
 
 const AddSiteModal = ({ children }) => {
 
@@ -27,41 +27,33 @@ const AddSiteModal = ({ children }) => {
   const { handleSubmit, register } = useForm();
 
   const onCreateSite = ({ name, url }) => {
-
     const newSite = {
       authorId: auth.user.uid,
       createdAt: new Date().toISOString(),
       name,
       url,
-      // settings: {
-      //   icons: true,
-      //   timestamp: true,
-      //   ratings: false
-      // }
+      settings: {
+        icons: true,
+        timestamp: true,
+        ratings: false
+      }
     };
 
-    createSite(newSite);
-    // const {id} = createSite(newSite);
-
+    const { id } = createSite(newSite);
     toast({
       title: 'Success!',
       description: "We've added your site.",
       status: 'success',
-      position: 'bottom-right',
-      duration: 6000,
+      duration: 5000,
       isClosable: true
     });
-
-    console.log('TOKEN :>> ', auth.user.token);
-
     mutate(
       ['/api/sites', auth.user.token],
-      async (data) => {
-        console.log('DATA_SWR :>> ', data);
-        return { sites: [...data.sites, newSite] }
-      }, false
+      async (data) => ({
+        sites: [{ id, ...newSite }, ...data.sites]
+      }),
+      false
     );
-
     onClose();
   };
 
@@ -132,4 +124,4 @@ const AddSiteModal = ({ children }) => {
   );
 };
 
-export default AddSiteModal
+export default AddSiteModal;

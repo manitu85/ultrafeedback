@@ -7,12 +7,6 @@ export default async (req, res) => {
   try {
     const { uid } = await auth.verifyIdToken(req.headers.token);
     const { sites } = await getUserSites(uid);
-
-  // const idTokenResult = await user.getIdTokenResult();
-  // const idToken = idTokenResult.token;
-    // console.log('sites :>> ', sites);
-    // console.log('uid :>> ', uid);
-
     res.status(200).json({ sites })
   } catch (error) {
     res.status(500).json({ error })

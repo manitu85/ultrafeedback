@@ -11,10 +11,10 @@ const Navbar = ({ children }) => {
   return (
     <Flex backgroundColor="white" mb={4} w="full" borderTop="5px solid #0AF5F4">
       <Flex
-        alignItems="center"
-        justifyContent="space-between"
+        align="center"
+        justify="space-between"
         pt={[4, 8]}
-        pb={[4, 8]}
+        pb={[3, 7]}
         maxW="950px"
         margin="0 auto"
         w="full"
