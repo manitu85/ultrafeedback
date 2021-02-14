@@ -24,3 +24,5 @@ const GlobalStyle = ({ children }) => {
     </>
   );
 };
+
+export default GlobalStyle
