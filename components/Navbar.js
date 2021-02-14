@@ -9,12 +9,12 @@ const Navbar = ({ children }) => {
   const { user } = useAuth();
 
   return (
-    <Flex backgroundColor="white" mb={4} w="full" borderTop="5px solid #0AF5F4">
+    <Flex backgroundColor="white" w="full" borderTop="5px solid #0AF5F4">
       <Flex
         align="center"
         justify="space-between"
         pt={[4, 8]}
-        pb={[3, 7]}
+        pb={[4, 8]}
         maxW="950px"
         margin="0 auto"
         w="full"
