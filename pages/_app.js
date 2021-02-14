@@ -1,10 +1,10 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import { AuthProvider } from '@/lib/auth';
-import theme from "@/styles/theme";
 import { MDXProvider } from '@mdx-js/react';
 
 import MDXComponents from '@/components/MDXComponents';
 import GlobalStyle from "@/styles/GlobalStyle";
+import theme from "@/styles/theme";
 
 
 const App = ({ Component, pageProps }) => {

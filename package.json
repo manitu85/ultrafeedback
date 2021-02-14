@@ -10,6 +10,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^1.0.5",
     "@chakra-ui/react": "^1.2.1",
+    "@emotion/babel-plugin": "^11.2.0",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
     "@mdx-js/loader": "^1.6.22",
