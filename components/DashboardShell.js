@@ -1,12 +1,12 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Box, Button, Flex, Link, Avatar, Icon, Code } from '@chakra-ui/react';
+import { Box, Heading, Text, Button, Flex, Link, Avatar, Code } from '@chakra-ui/react';
 import { useAuth } from '@/lib/auth';
 import { FastFeedbackIcon } from 'public/icons';
 import Footer from './Footer';
 
 const DashboardShell = ({ children }) => {
-  const { user } = useAuth();
+  const auth = useAuth();
 
   return (
     <Box backgroundColor="gray.100" h="100vh">
@@ -30,9 +30,16 @@ const DashboardShell = ({ children }) => {
           <Flex align="center">
             <NextLink href="/" passHref>
               <Link>
-                <FastFeedbackIcon color="black.500" boxSize="32px" mr={8} />
+                <FastFeedbackIcon color="black.500" boxSize="32px" mr={2} />
               </Link>
             </NextLink>
+              <Heading
+                as="h1"
+                size="l"
+                mr={8}
+                bgGradient="linear(to-l, #7928CA,#101010)"
+                bgClip="text" >ULTRA FEEDBACK
+              </Heading>
             {/* <NextLink href="/sites" passHref> */}
             <NextLink href="/dashboard" passHref>
               <Link mr={4}>Sites</Link>
@@ -42,15 +49,20 @@ const DashboardShell = ({ children }) => {
             </NextLink>
           </Flex>
           <Flex justifyContent="center" alignItems="center">
-            {/* {user && (
+            {
+            auth.user && (
               <Text>
-                <Code>Email: {user.email}</Code>
-                <Button onClick={(e) => user.signout()}>Sign Out</Button>
+                <Code>Email: {auth.user.email}</Code>
+                <Button
+                  onClick={() => auth.signout()}
+                  variant="ghost"
+                  mx={3}
+                >Sign Out</Button>
               </Text> )
-            } */}
+            }
             <NextLink href="/account" passHref>
               <Link>
-                <Avatar size="sm" src={user?.photoUrl} />
+                <Avatar size="sm" src={auth?.user?.photoUrl} />
               </Link>
             </NextLink>
           </Flex>
