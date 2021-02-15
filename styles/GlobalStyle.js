@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head';
 import { Global, css } from '@emotion/react';
 
@@ -7,7 +8,7 @@ const GlobalStyle = ({ children }) => {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <CSSReset />
+      {/* <CSSReset /> */}
       <Global
         styles={css`
           html {

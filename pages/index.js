@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head';
 import { useAuth } from '@/lib/auth';
 
@@ -11,7 +12,7 @@ import Footer from '@/components/Footer';
 const Home = () => {
   const auth = useAuth();
   return (
-        <>
+      <>
         <Navbar />
         <Box bg="gray.100" py={16} px={4}>
         <Flex as="main" direction="column" justify="center" maxW="700px" h="80vh" margin="0 auto">
@@ -35,7 +36,7 @@ const Home = () => {
               bgClip="text" >ULTRA FEEDBACK</Heading>
           <Text mb={4} fontSize="lg" py={4}>
             <Text as="span" fontWeight="bold" display="inline">
-              Ultra Feedback
+              Fast Feedback
             </Text>
             {' was built as part of '}
             <Link
@@ -45,7 +46,7 @@ const Home = () => {
             >
               React 2025
             </Link>
-            {`. It's the easiest way to add comments or reviews to your static site. Try it out by leaving a comment below. After the comment is approved, it will display below.`}
+            {` tutorial by Lee Robinson. It's the easiest way to add comments or reviews to your static site. Try it out by leaving a comment below. After the comment is approved, it will display below. `}
           </Text>
           {auth.user ? (
             <Button
@@ -70,7 +71,7 @@ const Home = () => {
         </Flex>
       </Box>
       <Footer/>
-      </>
+    </>
   );
 };
 

@@ -47,7 +47,7 @@ const DashboardShell = ({ children }) => {
             <NextLink href="/feedback" passHref>
               <Link>Feedback</Link>
             </NextLink>
-          </Flex>
+          </Flex>p
           <Flex justifyContent="center" alignItems="center">
             {
             auth.user && (
