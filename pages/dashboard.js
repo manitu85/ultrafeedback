@@ -2,13 +2,14 @@ import React from 'react'
 import useSWR from 'swr'
 
 import DashboardShell from '@/components/DashboardShell';
+import SiteTableHeader from '@/components/SiteTableHeader';
 import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import SiteTable from '@/components/SiteTable';
 import EmptyState from '@/components/EmptyState';
+import Page from '@/components/Page';
 
 import { useAuth } from '@/lib/auth';
 import { fetcher } from '@/utils/fetcher';
-import SiteTableHeader from '@/components/SiteTableHeader';
 
 
 const Dashboard = () => {
@@ -29,10 +30,16 @@ const Dashboard = () => {
     <DashboardShell>
       <SiteTableHeader />
       { sites?.length
-          ? <SiteTable sites={sites} />
-          : <EmptyState /> }
+        ? <SiteTable sites={sites} />
+        : <EmptyState /> }
     </DashboardShell>
   )
 }
 
-export default Dashboard
+const DashboardPage = () => (
+  <Page name="Dashboard" path="/dashboard">
+    <Dashboard />
+  </Page>
+);
+
+export default DashboardPage
