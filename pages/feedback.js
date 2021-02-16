@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import { useAuth } from '@/lib/auth';
 import {fetcher} from '@/utils/fetcher';
 
-import Page from '@/components/Page';
+import PageSEO from '@/components/PageSEO';
 import DashboardShell from '@/components/DashboardShell';
 import FeedbackTable from '@/components/FeedbackTable';
 import FeedbackEmptyState from '@/components/FeedbackEmptyState';
@@ -33,9 +33,9 @@ const AllFeedback = () => {
 };
 
 const AllFeedbackPage = () => (
-  <Page name="All Feedback" path="/feedback">
+  <PageSEO name="All Feedback" path="/feedback">
     <AllFeedback />
-  </Page>
+  </PageSEO>
 );
 
 export default AllFeedbackPage;

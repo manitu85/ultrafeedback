@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { FastFeedbackIcon } from 'public/icons'
 
-import Page from '@/components/Page';
+import Page from '@/components/PageSEO';
 import { useAuth } from '@/lib/auth';
 
 const Login = () => {

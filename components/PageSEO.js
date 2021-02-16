@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextSeo } from 'next-seo'
 
-const Page = ({ name, path, children }) => {
+const PageSEO = ({ name, path, children }) => {
   const title = `Fast Feedback – ${name}`
   const url = `https://fastfeedback.io${path}`
   return (
@@ -18,4 +18,4 @@ const Page = ({ name, path, children }) => {
     </>
   )
 }
-export default Page
+export default PageSEO

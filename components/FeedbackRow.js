@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { mutate } from 'swr';
 
+import { Box, Code, Switch } from '@chakra-ui/react';
+import { Td } from './Table';
+import DeleteFeedbackButton from './DeleteFeedbackButton';
+
 import { useAuth } from '@/lib/auth';
 import { updateFeedback } from '@/lib/firestore';
 
-import { Td } from './Table';
-import DeleteFeedbackButton from './DeleteFeedbackButton';
-import { Box, Code, Switch } from '@chakra-ui/react';
 
 const FeedbackRow = ({ id, author, text, route, status }) => {
   const auth = useAuth();
@@ -33,7 +34,10 @@ const FeedbackRow = ({ id, author, text, route, status }) => {
         </Code>
       </Td>
       <Td>
-        <Switch color="green" onChange={toggleFeedback} isChecked={isChecked} />
+        <Switch
+          colorScheme="teal"
+          onChange={toggleFeedback}
+          isChecked={isChecked} />
       </Td>
       <Td>
         <DeleteFeedbackButton feedbackId={id} />

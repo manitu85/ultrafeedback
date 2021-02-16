@@ -6,7 +6,7 @@ import SiteTableHeader from '@/components/SiteTableHeader';
 import SiteTableSkeleton from '@/components/SiteTableSkeleton';
 import SiteTable from '@/components/SiteTable';
 import EmptyState from '@/components/EmptyState';
-import Page from '@/components/Page';
+import PageSEO from '@/components/PageSEO';
 
 import { useAuth } from '@/lib/auth';
 import { fetcher } from '@/utils/fetcher';
@@ -37,9 +37,9 @@ const Dashboard = () => {
 }
 
 const DashboardPage = () => (
-  <Page name="Dashboard" path="/dashboard">
+  <PageSEO name="Dashboard" path="/dashboard">
     <Dashboard />
-  </Page>
+  </PageSEO>
 );
 
 export default DashboardPage
