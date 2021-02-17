@@ -8,18 +8,20 @@ import {
   AlertDialogContent,
   AlertDialogOverlay,
   IconButton,
-  Button
+  Button,
+  useDisclosure
 } from '@chakra-ui/react';
+import { DeleteIcon } from '@chakra-ui/icons'
 
 import { deleteSite } from '@/lib/firestore';
 import { useAuth } from '@/lib/auth';
 
-const DeleteSitebutton = ({ siteId }) => {
-  const [isOpen, setIsOpen] = useState();
+const DeleteSiteButton = ({ siteId }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
   const auth = useAuth();
 
-  const onClose = () => setIsOpen(false);
+  // const onClose = () => setIsOpen(false);
   const onDelete = () => {
     deleteSite(siteId);
     mutate(
@@ -38,9 +40,10 @@ const DeleteSitebutton = ({ siteId }) => {
     <>
       <IconButton
         aria-label="Delete site"
-        icon="delete"
+        icon={<DeleteIcon />}
+        color="red.300"
         variant="ghost"
-        onClick={() => setIsOpen(true)}
+        onClick={onOpen}
       />
       <AlertDialog
         isOpen={isOpen}
@@ -62,7 +65,8 @@ const DeleteSitebutton = ({ siteId }) => {
             </Button>
             <Button
               fontWeight="bold"
-              variantColor="red"
+              color="white"
+              bg="red.500"
               onClick={onDelete}
               ml={3}
             >
@@ -75,4 +79,4 @@ const DeleteSitebutton = ({ siteId }) => {
   );
 };
 
-export default DeleteSitebutton;
+export default DeleteSiteButton;
